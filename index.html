@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Timestamp Generator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input:focus, select:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+        .button {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            margin: 20px 0;
+            transition: transform 0.2s;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+        }
+        .result {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+        }
+        .timestamp-code {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            margin: 10px 0;
+            word-break: break-all;
+            user-select: all;
+            cursor: pointer;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+        }
+        .preview {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .format-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .format-option {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .format-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .format-option small {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 12px;
+        }
+        .quick-example {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🕐 Discord Timestamp Generator</h1>
+        
+        <div class="quick-example">
+            <h3>Quick Example: Current Time</h3>
+            <div class="timestamp-code" id="currentTimeExample" onclick="copyCurrentExample()">&lt;t:loading...&gt;</div>
+            <small id="currentTimePreview">Loading current time...</small>
+        </div>
+        
+        <div class="input-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date">
+        </div>
+        
+        <div class="input-group">
+            <label for="time">Time:</label>
+            <input type="time" id="time">
+        </div>
+        
+        <div class="input-group">
+            <label for="timezone">Timezone:</label>
+            <select id="timezone">
+                <option value="-10">HST (Hawaii)</option>
+                <option value="-9">AKST (Alaska)</option>
+                <option value="-8">PST (Pacific)</option>
+                <option value="-7">MST (Mountain) / PDT (Pacific Daylight)</option>
+                <option value="-6">CST (Central) / MDT (Mountain Daylight)</option>
+                <option value="-5">EST (Eastern) / CDT (Central Daylight)</option>
+                <option value="-4">AST (Atlantic) / EDT (Eastern Daylight)</option>
+                <option value="-3">BRT (Brazil) / ADT (Atlantic Daylight)</option>
+                <option value="-2">GST (South Georgia)</option>
+                <option value="-1">CVT (Cape Verde)</option>
+                <option value="0">UTC / GMT (London Winter)</option>
+                <option value="1">CET (Central Europe) / BST (London Summer)</option>
+                <option value="2">EET (Eastern Europe) / CEST (Central Europe Summer)</option>
+                <option value="3">MSK (Moscow) / EEST (Eastern Europe Summer)</option>
+                <option value="4">GST (Gulf) / MSD (Moscow Summer)</option>
+                <option value="5">PKT (Pakistan) / UZT (Uzbekistan)</option>
+                <option value="5.5">IST (India)</option>
+                <option value="6">BST (Bangladesh) / KGT (Kyrgyzstan)</option>
+                <option value="7">ICT (Indochina) / WIB (Western Indonesia)</option>
+                <option value="8">CST (China) / WITA (Central Indonesia)</option>
+                <option value="9">JST (Japan) / KST (Korea)</option>
+                <option value="10">AEST (Australia Eastern)</option>
+                <option value="11">AEDT (Australia Eastern Daylight)</option>
+                <option value="12">NZST (New Zealand)</option>
+                <option value="13">NZDT (New Zealand Daylight)</option>
+            </select>
+        </div>
+        
+        <div class="input-group">
+            <label for="format">Preferred Format:</label>
+            <select id="format">
+                <option value="f">Short Date/Time (June 9, 2025 4:30 PM)</option>
+                <option value="F">Long Date/Time (Monday, June 9, 2025 4:30 PM)</option>
+                <option value="t">Short Time (4:30 PM)</option>
+                <option value="T">Long Time (4:30:00 PM)</option>
+                <option value="d">Short Date (06/09/2025)</option>
+                <option value="D">Long Date (June 9, 2025)</option>
+                <option value="R">Relative Time (in 2 hours)</option>
+            </select>
+        </div>
+        
+        <button class="button" onclick="generateTimestamp()">Generate Discord Timestamp</button>
+        
+        <div id="primaryResult" class="result" style="display: none;">
+            <h3>Your Discord Timestamp:</h3>
+            <div id="primaryTimestamp" class="timestamp-code"></div>
+            <div id="primaryPreview" class="preview"></div>
+        </div>
+        
+        <div id="result" class="result">
+            <h3>All Discord Timestamp Formats:</h3>
+            <p>Click any timestamp to copy it:</p>
+            <div class="format-options" id="formatOptions"></div>
+        </div>
+    </div>
+
+    <script>
+        // Set default values
+        document.addEventListener('DOMContentLoaded', function() {
+            const now = new Date();
+            
+            // Set current date and time
+            const today = now.toISOString().split('T')[0];
+            const currentTime = now.toTimeString().slice(0, 5); // HH:MM format
+            document.getElementById('date').value = today;
+            document.getElementById('time').value = currentTime;
+            
+            // Auto-detect timezone
+            const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            const timezoneOffset = -now.getTimezoneOffset() / 60; // Convert to hours from UTC
+            
+            // Map user's timezone to closest option in dropdown
+            const timezoneSelect = document.getElementById('timezone');
+            let closestOption = timezoneSelect.options[0]; // default
+            let smallestDiff = Infinity;
+            
+            for (let option of timezoneSelect.options) {
+                const optionOffset = parseFloat(option.value); // Use parseFloat for fractional timezones
+                const diff = Math.abs(timezoneOffset - optionOffset);
+                if (diff < smallestDiff) {
+                    smallestDiff = diff;
+                    closestOption = option;
+                }
+            }
+            closestOption.selected = true;
+            
+            // Set default format
+            document.getElementById('format').value = 'f';
+            
+            // Update current time example
+            updateCurrentTimeExample();
+            
+            // Update format dropdown examples
+            updateFormatExamples();
+        });
+        
+        function updateCurrentTimeExample() {
+            const now = new Date();
+            const currentTimestamp = Math.floor(now.getTime() / 1000);
+            const exampleCode = `<t:${currentTimestamp}:f>`;
+            const examplePreview = generatePreviewText(now, 'f');
+            
+            document.getElementById('currentTimeExample').innerHTML = exampleCode.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            document.getElementById('currentTimePreview').innerHTML = `Click to copy! Shows as: ${examplePreview}`;
+        }
+        
+        function copyCurrentExample() {
+            const now = new Date();
+            const currentTimestamp = Math.floor(now.getTime() / 1000);
+            const exampleCode = `<t:${currentTimestamp}:f>`;
+            copyToClipboard(exampleCode.replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+        }
+        
+        function updateFormatExamples() {
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            
+            if (!date || !time) return;
+            
+            const exampleDate = new Date(`${date}T${time}:00`);
+            const formatSelect = document.getElementById('format');
+            const currentValue = formatSelect.value; // Save current selection
+            
+            // Update each option in the format dropdown
+            formatSelect.innerHTML = `
+                <option value="f">Short Date/Time (${generatePreviewText(exampleDate, 'f')})</option>
+                <option value="F">Long Date/Time (${generatePreviewText(exampleDate, 'F')})</option>
+                <option value="t">Short Time (${generatePreviewText(exampleDate, 't')})</option>
+                <option value="T">Long Time (${generatePreviewText(exampleDate, 'T')})</option>
+                <option value="d">Short Date (${generatePreviewText(exampleDate, 'd')})</option>
+                <option value="D">Long Date (${generatePreviewText(exampleDate, 'D')})</option>
+                <option value="R">Relative Time (${generatePreviewText(exampleDate, 'R')})</option>
+            `;
+            
+            // Restore the selected value, or default to 'f'
+            formatSelect.value = currentValue || 'f';
+        }
+        
+        // Update examples when date/time changes
+        document.getElementById('date').addEventListener('change', updateFormatExamples);
+        document.getElementById('time').addEventListener('change', updateFormatExamples);
+
+        const formats = [
+            { code: 't', name: 'Short Time', example: '4:30 PM' },
+            { code: 'T', name: 'Long Time', example: '4:30:00 PM' },
+            { code: 'd', name: 'Short Date', example: '06/09/2025' },
+            { code: 'D', name: 'Long Date', example: 'June 9, 2025' },
+            { code: 'f', name: 'Short Date/Time', example: 'June 9, 2025 4:30 PM' },
+            { code: 'F', name: 'Long Date/Time', example: 'Monday, June 9, 2025 4:30 PM' },
+            { code: 'R', name: 'Relative Time', example: 'in 2 hours' }
+        ];
+
+        function generateTimestamp() {
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const timezoneOffset = parseFloat(document.getElementById('timezone').value); // Use parseFloat for fractional timezones
+            const selectedFormat = document.getElementById('format').value;
+            
+            if (!date || !time) {
+                alert('Please select both date and time');
+                return;
+            }
+            
+            // Parse the date and time
+            const [year, month, day] = date.split('-').map(Number);
+            const [hour, minute] = time.split(':').map(Number);
+            
+            // Create UTC timestamp - subtract timezone offset to get UTC
+            const utcTimestamp = Date.UTC(year, month - 1, day, hour, minute) / 1000 - (timezoneOffset * 3600);
+            
+            // Create the actual date object for preview
+            const previewDate = new Date(utcTimestamp * 1000);
+            
+            // Show primary result
+            const primaryResult = document.getElementById('primaryResult');
+            const primaryTimestamp = document.getElementById('primaryTimestamp');
+            const primaryPreview = document.getElementById('primaryPreview');
+            
+            const primaryCode = `<t:${Math.floor(utcTimestamp)}:${selectedFormat}>`;
+            primaryTimestamp.innerHTML = primaryCode.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            primaryTimestamp.onclick = () => copyToClipboard(primaryCode.replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+            
+            // Generate preview text
+            const previewText = generatePreviewText(previewDate, selectedFormat);
+            primaryPreview.innerHTML = `<strong>Preview:</strong> ${previewText}`;
+            
+            primaryResult.style.display = 'block';
+            
+            // Display all format options
+            const resultDiv = document.getElementById('result');
+            const formatOptionsDiv = document.getElementById('formatOptions');
+            
+            formatOptionsDiv.innerHTML = '';
+            
+            formats.forEach(format => {
+                const timestampCode = `<t:${Math.floor(utcTimestamp)}:${format.code}>`;
+                const preview = generatePreviewText(previewDate, format.code);
+                
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'format-option';
+                optionDiv.innerHTML = `
+                    <strong>${format.name}</strong><br>
+                    <div class="timestamp-code" onclick="copyToClipboard('${timestampCode.replace(/</g, '&lt;').replace(/>/g, '&gt;')}')">${timestampCode.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</div>
+                    <small><strong>Preview:</strong> ${preview}</small>
+                `;
+                
+                formatOptionsDiv.appendChild(optionDiv);
+            });
+            
+            resultDiv.style.display = 'block';
+        }
+        
+        function generatePreviewText(date, formatCode) {
+            const options = { 
+                timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                weekday: 'long',
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            };
+            
+            switch(formatCode) {
+                case 't': // Short time
+                    return date.toLocaleTimeString([], {hour: 'numeric', minute: '2-digit', hour12: true});
+                case 'T': // Long time
+                    return date.toLocaleTimeString([], {hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true});
+                case 'd': // Short date
+                    return date.toLocaleDateString();
+                case 'D': // Long date
+                    return date.toLocaleDateString([], {year: 'numeric', month: 'long', day: 'numeric'});
+                case 'f': // Short date/time
+                    return date.toLocaleDateString([], {year: 'numeric', month: 'long', day: 'numeric'}) + ' ' + 
+                           date.toLocaleTimeString([], {hour: 'numeric', minute: '2-digit', hour12: true});
+                case 'F': // Long date/time
+                    return date.toLocaleDateString([], {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}) + ' ' +
+                           date.toLocaleTimeString([], {hour: 'numeric', minute: '2-digit', hour12: true});
+                case 'R': // Relative time
+                    const now = new Date();
+                    const diffMs = date.getTime() - now.getTime();
+                    const diffMins = Math.round(diffMs / (1000 * 60));
+                    const diffHours = Math.round(diffMs / (1000 * 60 * 60));
+                    const diffDays = Math.round(diffMs / (1000 * 60 * 60 * 24));
+                    
+                    if (Math.abs(diffMins) < 60) {
+                        return diffMins > 0 ? `in ${diffMins} minutes` : `${Math.abs(diffMins)} minutes ago`;
+                    } else if (Math.abs(diffHours) < 24) {
+                        return diffHours > 0 ? `in ${diffHours} hours` : `${Math.abs(diffHours)} hours ago`;
+                    } else {
+                        return diffDays > 0 ? `in ${diffDays} days` : `${Math.abs(diffDays)} days ago`;
+                    }
+                default:
+                    return 'Unknown format';
+            }
+        }
+        
+        function copyToClipboard(text) {
+            // Remove HTML entities
+            const cleanText = text.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+            navigator.clipboard.writeText(cleanText).then(function() {
+                // Visual feedback
+                const elem = event.target;
+                const originalBorder = elem.style.border;
+                elem.style.border = '2px solid #48bb78';
+                setTimeout(() => {
+                    elem.style.border = originalBorder;
+                }, 500);
+            });
+        }
+    </script>
+</body>
+</html>
