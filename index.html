@@ -3,16 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord Timestamp Generator</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Discord Timestamp Generator - Free Discord Time Converter & Timezone Tool 2025</title>
+    <meta name="title" content="Discord Timestamp Generator - Free Discord Time Converter & Timezone Tool 2025">
+    <meta name="description" content="Free Discord timestamp generator tool! Create dynamic timestamps, convert time zones, and generate Discord time codes. Perfect for events, gaming, and global communities. No ads, instant results.">
+    <meta name="keywords" content="discord timestamp generator, discord timestamps, discord time converter, discord timezone converter, discord unix timestamp, discord time codes, discord relative timestamp, discord countdown generator, discord timestamp maker, discord timestamp format, discord time format, gaming timestamps, event scheduling discord">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="author" content="Discord Timestamp Generator">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lucidiac.github.io/DiscordTimestamps/">
+    <meta property="og:title" content="Discord Timestamp Generator - Free Discord Time Converter Tool">
+    <meta property="og:description" content="Create dynamic Discord timestamps that auto-adjust to every user's timezone. Perfect for gaming events, meetings, and global communities. Generate all 7 Discord timestamp formats instantly!">
+    <meta property="og:image" content="https://lucidiac.github.io/DiscordTimestamps/discord-timestamp-preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Discord Timestamp Generator">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lucidiac.github.io/DiscordTimestamps/">
+    <meta property="twitter:title" content="Discord Timestamp Generator - Free Discord Time Converter Tool">
+    <meta property="twitter:description" content="Create dynamic Discord timestamps that auto-adjust to every user's timezone. Perfect for gaming events, meetings, and global communities.">
+    <meta property="twitter:image" content="https://lucidiac.github.io/DiscordTimestamps/discord-timestamp-preview.png">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#5865F2">
+    <meta name="msapplication-TileColor" content="#5865F2">
+    <meta name="application-name" content="Discord Timestamp Generator">
+    <meta name="msapplication-tooltip" content="Generate Discord timestamps instantly">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lucidiac.github.io/DiscordTimestamps/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Discord Timestamp Generator",
+      "description": "Free online tool to generate Discord timestamps with automatic timezone conversion. Create dynamic time displays for Discord messages, events, and gaming communities.",
+      "url": "https://lucidiac.github.io/DiscordTimestamps/",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "permissions": "browser",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "Discord Timestamp Generator"
+      },
+      "keywords": "discord timestamp generator, discord timestamps, discord time converter, timezone converter, unix timestamp, discord time codes",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Discord users, gamers, community managers, event organizers"
+      }
+    }
+    </script>
+    
+    <!-- Additional Structured Data for How-To -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Generate Discord Timestamps",
+      "description": "Step-by-step guide to create Discord timestamps that automatically adjust to users' timezones",
+      "image": "https://lucidiac.github.io/DiscordTimestamps/discord-timestamp-preview.png",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Select Date and Time",
+          "text": "Enter your desired date and time in the form fields"
+        },
+        {
+          "@type": "HowToStep", 
+          "name": "Choose Timezone",
+          "text": "Select the appropriate timezone from the dropdown menu"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Pick Format",
+          "text": "Choose your preferred Discord timestamp format (relative, short time, long date, etc.)"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Generate and Copy",
+          "text": "Click generate and copy the Discord timestamp code to paste in your Discord message"
+        }
+      ]
+    }
+    </script>
+    
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 600px;
-            margin: 50px auto;
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             color: white;
+            line-height: 1.6;
         }
         .container {
             background: rgba(255, 255, 255, 0.1);
@@ -21,11 +125,43 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
-        h1 {
+        .hero-section {
             text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.5em;
+            margin-bottom: 25px;
+        }
+        h1 {
+            margin-bottom: 15px;
+            font-size: 2.8em;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+        .subtitle {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            opacity: 0.8;
+            font-weight: normal;
+        }
+        .features {
+            display: none; /* Hidden by default, show on larger screens */
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+        .feature {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.8em;
+            opacity: 0.9;
+        }
+        @media (min-width: 768px) {
+            .features {
+                display: grid;
+            }
+            .subtitle {
+                font-size: 1.2em;
+            }
         }
         .input-group {
             margin-bottom: 20px;
@@ -94,7 +230,7 @@
         }
         .format-options {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 10px;
             margin-top: 15px;
         }
@@ -118,31 +254,87 @@
             border-radius: 10px;
             margin-bottom: 20px;
         }
+        .seo-content {
+            margin-top: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+        }
+        .seo-content h2 {
+            color: #feca57;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        .seo-content h3 {
+            color: white;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        .seo-content p {
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+        .use-cases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        .use-case {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .copy-success {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #48bb78;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: none;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
+    <div class="copy-success" id="copySuccess">Copied to clipboard! ✅</div>
+    
     <div class="container">
-        <h1>🕐 Discord Timestamp Generator</h1>
+        <div class="hero-section">
+            <h1>🕐 Discord Timestamp Generator</h1>
+            <p class="subtitle">Create timestamps that auto-adjust to every user's timezone</p>
+            <div class="features">
+                <div class="feature">✨ All 7 Formats</div>
+                <div class="feature">🌍 Auto Timezone</div>
+                <div class="feature">⚡ Instant Results</div>
+                <div class="feature">📱 Mobile Ready</div>
+                <div class="feature">🆓 Always Free</div>
+                <div class="feature">🚫 No Sign-up</div>
+            </div>
+        </div>
         
         <div class="quick-example">
-            <h3>Quick Example: Current Time</h3>
+            <h3>⚡ Quick Example: Current Time</h3>
             <div class="timestamp-code" id="currentTimeExample" onclick="copyCurrentExample()">&lt;t:loading...&gt;</div>
             <small id="currentTimePreview">Loading current time...</small>
         </div>
         
         <div class="input-group">
-            <label for="date">Date:</label>
-            <input type="date" id="date">
+            <label for="date">📅 Date:</label>
+            <input type="date" id="date" aria-label="Select date for Discord timestamp">
         </div>
         
         <div class="input-group">
-            <label for="time">Time:</label>
-            <input type="time" id="time">
+            <label for="time">⏰ Time:</label>
+            <input type="time" id="time" aria-label="Select time for Discord timestamp">
         </div>
         
         <div class="input-group">
-            <label for="timezone">Timezone:</label>
-            <select id="timezone">
+            <label for="timezone">🌍 Timezone:</label>
+            <select id="timezone" aria-label="Select timezone for Discord timestamp">
                 <option value="-10">HST (Hawaii)</option>
                 <option value="-9">AKST (Alaska)</option>
                 <option value="-8">PST (Pacific)</option>
@@ -172,55 +364,119 @@
         </div>
         
         <div class="input-group">
-            <label for="format">Preferred Format:</label>
-            <select id="format">
-                <option value="f">Short Date/Time (June 9, 2025 4:30 PM)</option>
-                <option value="F">Long Date/Time (Monday, June 9, 2025 4:30 PM)</option>
-                <option value="t">Short Time (4:30 PM)</option>
-                <option value="T">Long Time (4:30:00 PM)</option>
-                <option value="d">Short Date (06/09/2025)</option>
-                <option value="D">Long Date (June 9, 2025)</option>
-                <option value="R">Relative Time (in 2 hours)</option>
+            <label for="format">📝 Preferred Format:</label>
+            <select id="format" aria-label="Select Discord timestamp format">
+                <option value="f">Short Date/Time (Default)</option>
+                <option value="F">Long Date/Time</option>
+                <option value="t">Short Time</option>
+                <option value="T">Long Time</option>
+                <option value="d">Short Date</option>
+                <option value="D">Long Date</option>
+                <option value="R">Relative Time</option>
             </select>
         </div>
         
-        <button class="button" onclick="generateTimestamp()">Generate Discord Timestamp</button>
+        <button class="button" onclick="generateTimestamp()" aria-label="Generate Discord timestamp">
+            🚀 Generate Discord Timestamp
+        </button>
         
         <div id="primaryResult" class="result" style="display: none;">
-            <h3>Your Discord Timestamp:</h3>
-            <div id="primaryTimestamp" class="timestamp-code"></div>
+            <h3>🎯 Your Discord Timestamp:</h3>
+            <div id="primaryTimestamp" class="timestamp-code" aria-label="Primary Discord timestamp code"></div>
             <div id="primaryPreview" class="preview"></div>
         </div>
         
         <div id="result" class="result">
-            <h3>All Discord Timestamp Formats:</h3>
+            <h3>📋 All Discord Timestamp Formats:</h3>
             <p>Click any timestamp to copy it:</p>
             <div class="format-options" id="formatOptions"></div>
+        </div>
+        
+        <!-- SEO Content Section -->
+        <div class="seo-content">
+            <h2>Discord Timestamp Generator - Complete Guide</h2>
+            
+            <p>Our <strong>Discord timestamp generator</strong> is the fastest and most accurate tool for creating dynamic timestamps in Discord messages. Perfect for gaming communities, international teams, and event planning, this free tool automatically handles timezone conversions so every user sees the correct local time.</p>
+            
+            <h3>🎮 Popular Use Cases for Discord Timestamps</h3>
+            <div class="use-cases">
+                <div class="use-case">
+                    <h4>🎯 Gaming Events</h4>
+                    <p>Schedule raids, tournaments, and gaming sessions across different timezones. Perfect for MMO guilds and esports teams.</p>
+                </div>
+                <div class="use-case">
+                    <h4>📊 Business Meetings</h4>
+                    <p>Coordinate team meetings, client calls, and project deadlines without timezone confusion.</p>
+                </div>
+                <div class="use-case">
+                    <h4>🎪 Community Events</h4>
+                    <p>Announce movie nights, book clubs, and community gatherings with accurate timing for all members.</p>
+                </div>
+                <div class="use-case">
+                    <h4>🚀 Product Launches</h4>
+                    <p>Create countdown timers for software releases, game updates, and product drops that update in real-time.</p>
+                </div>
+            </div>
+            
+            <h3>🔧 How Discord Timestamps Work</h3>
+            <p>Discord timestamps use <strong>Unix timestamp format</strong> - the number of seconds since January 1, 1970. When you paste a timestamp code like <code>&lt;t:1234567890:F&gt;</code> into Discord, it automatically displays the correct time in each user's local timezone. Our generator converts your date and time input into the proper Unix timestamp and wraps it in Discord's timestamp syntax.</p>
+            
+            <h3>📝 All 7 Discord Timestamp Formats</h3>
+            <p>Discord supports 7 different timestamp formats:</p>
+            <ul>
+                <li><strong>t</strong> - Short Time (3:30 PM)</li>
+                <li><strong>T</strong> - Long Time (3:30:00 PM)</li>
+                <li><strong>d</strong> - Short Date (12/31/2024)</li>
+                <li><strong>D</strong> - Long Date (December 31, 2024)</li>
+                <li><strong>f</strong> - Short Date/Time (December 31, 2024 3:30 PM)</li>
+                <li><strong>F</strong> - Long Date/Time (Monday, December 31, 2024 3:30 PM)</li>
+                <li><strong>R</strong> - Relative Time (in 2 hours, yesterday, etc.)</li>
+            </ul>
+            
+            <h3>❓ Frequently Asked Questions</h3>
+            <p><strong>Do Discord timestamps work on mobile?</strong><br>
+            Yes! Discord timestamps work perfectly on desktop, mobile, and web versions of Discord.</p>
+            
+            <p><strong>Can I use timestamps in Discord bots?</strong><br>
+            Absolutely! These timestamp codes work in bot messages, embeds, and anywhere you can post text in Discord.</p>
+            
+            <p><strong>Are Discord timestamps accurate?</strong><br>
+            Yes, timestamps are accurate to the second and automatically update. Relative timestamps (R format) dynamically change to show "2 hours ago" or "in 3 days" etc.</p>
+            
+            <p><strong>What's the date range for Discord timestamps?</strong><br>
+            Discord timestamps support dates from January 1, 1970, to January 19, 2038 due to Unix timestamp limitations.</p>
+            
+            <h3>💡 Pro Tips for Discord Timestamp Usage</h3>
+            <ul>
+                <li>Use <strong>relative timestamps (R format)</strong> for countdowns and events</li>
+                <li>Combine different formats for clarity: "Event starts &lt;t:1234567890:F&gt; (&lt;t:1234567890:R&gt;)"</li>
+                <li>Test timestamps in a private channel before posting to larger servers</li>
+                <li>Bookmark this generator for quick access during event planning</li>
+            </ul>
+            
+            <p><em>Need help with Discord timestamps? This free generator tool makes creating Discord time codes simple and fast. No registration required!</em></p>
         </div>
     </div>
 
     <script>
-        // Set default values
+        // Set default values and auto-detect timezone
         document.addEventListener('DOMContentLoaded', function() {
             const now = new Date();
             
             // Set current date and time
             const today = now.toISOString().split('T')[0];
-            const currentTime = now.toTimeString().slice(0, 5); // HH:MM format
+            const currentTime = now.toTimeString().slice(0, 5);
             document.getElementById('date').value = today;
             document.getElementById('time').value = currentTime;
             
             // Auto-detect timezone
-            const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            const timezoneOffset = -now.getTimezoneOffset() / 60; // Convert to hours from UTC
-            
-            // Map user's timezone to closest option in dropdown
+            const timezoneOffset = -now.getTimezoneOffset() / 60;
             const timezoneSelect = document.getElementById('timezone');
-            let closestOption = timezoneSelect.options[0]; // default
+            let closestOption = timezoneSelect.options[0];
             let smallestDiff = Infinity;
             
             for (let option of timezoneSelect.options) {
-                const optionOffset = parseFloat(option.value); // Use parseFloat for fractional timezones
+                const optionOffset = parseFloat(option.value);
                 const diff = Math.abs(timezoneOffset - optionOffset);
                 if (diff < smallestDiff) {
                     smallestDiff = diff;
@@ -234,11 +490,19 @@
             
             // Update current time example
             updateCurrentTimeExample();
-            
-            // Update format dropdown examples
             updateFormatExamples();
         });
-        
+
+        const formats = [
+            { code: 't', name: 'Short Time', example: '4:30 PM' },
+            { code: 'T', name: 'Long Time', example: '4:30:00 PM' },
+            { code: 'd', name: 'Short Date', example: '06/09/2025' },
+            { code: 'D', name: 'Long Date', example: 'June 9, 2025' },
+            { code: 'f', name: 'Short Date/Time', example: 'June 9, 2025 4:30 PM' },
+            { code: 'F', name: 'Long Date/Time', example: 'Monday, June 9, 2025 4:30 PM' },
+            { code: 'R', name: 'Relative Time', example: 'in 2 hours' }
+        ];
+
         function updateCurrentTimeExample() {
             const now = new Date();
             const currentTimestamp = Math.floor(now.getTime() / 1000);
@@ -264,9 +528,8 @@
             
             const exampleDate = new Date(`${date}T${time}:00`);
             const formatSelect = document.getElementById('format');
-            const currentValue = formatSelect.value; // Save current selection
+            const currentValue = formatSelect.value;
             
-            // Update each option in the format dropdown
             formatSelect.innerHTML = `
                 <option value="f">Short Date/Time (${generatePreviewText(exampleDate, 'f')})</option>
                 <option value="F">Long Date/Time (${generatePreviewText(exampleDate, 'F')})</option>
@@ -277,28 +540,13 @@
                 <option value="R">Relative Time (${generatePreviewText(exampleDate, 'R')})</option>
             `;
             
-            // Restore the selected value, or default to 'f'
             formatSelect.value = currentValue || 'f';
         }
-        
-        // Update examples when date/time changes
-        document.getElementById('date').addEventListener('change', updateFormatExamples);
-        document.getElementById('time').addEventListener('change', updateFormatExamples);
-
-        const formats = [
-            { code: 't', name: 'Short Time', example: '4:30 PM' },
-            { code: 'T', name: 'Long Time', example: '4:30:00 PM' },
-            { code: 'd', name: 'Short Date', example: '06/09/2025' },
-            { code: 'D', name: 'Long Date', example: 'June 9, 2025' },
-            { code: 'f', name: 'Short Date/Time', example: 'June 9, 2025 4:30 PM' },
-            { code: 'F', name: 'Long Date/Time', example: 'Monday, June 9, 2025 4:30 PM' },
-            { code: 'R', name: 'Relative Time', example: 'in 2 hours' }
-        ];
 
         function generateTimestamp() {
             const date = document.getElementById('date').value;
             const time = document.getElementById('time').value;
-            const timezoneOffset = parseFloat(document.getElementById('timezone').value); // Use parseFloat for fractional timezones
+            const timezoneOffset = parseFloat(document.getElementById('timezone').value);
             const selectedFormat = document.getElementById('format').value;
             
             if (!date || !time) {
@@ -306,14 +554,10 @@
                 return;
             }
             
-            // Parse the date and time
             const [year, month, day] = date.split('-').map(Number);
             const [hour, minute] = time.split(':').map(Number);
             
-            // Create UTC timestamp - subtract timezone offset to get UTC
             const utcTimestamp = Date.UTC(year, month - 1, day, hour, minute) / 1000 - (timezoneOffset * 3600);
-            
-            // Create the actual date object for preview
             const previewDate = new Date(utcTimestamp * 1000);
             
             // Show primary result
@@ -325,7 +569,6 @@
             primaryTimestamp.innerHTML = primaryCode.replace(/</g, '&lt;').replace(/>/g, '&gt;');
             primaryTimestamp.onclick = () => copyToClipboard(primaryCode.replace(/</g, '&lt;').replace(/>/g, '&gt;'));
             
-            // Generate preview text
             const previewText = generatePreviewText(previewDate, selectedFormat);
             primaryPreview.innerHTML = `<strong>Preview:</strong> ${previewText}`;
             
@@ -356,34 +599,22 @@
         }
         
         function generatePreviewText(date, formatCode) {
-            const options = { 
-                timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                weekday: 'long',
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric',
-                hour: 'numeric',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: true
-            };
-            
             switch(formatCode) {
-                case 't': // Short time
+                case 't':
                     return date.toLocaleTimeString([], {hour: 'numeric', minute: '2-digit', hour12: true});
-                case 'T': // Long time
+                case 'T':
                     return date.toLocaleTimeString([], {hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true});
-                case 'd': // Short date
+                case 'd':
                     return date.toLocaleDateString();
-                case 'D': // Long date
+                case 'D':
                     return date.toLocaleDateString([], {year: 'numeric', month: 'long', day: 'numeric'});
-                case 'f': // Short date/time
+                case 'f':
                     return date.toLocaleDateString([], {year: 'numeric', month: 'long', day: 'numeric'}) + ' ' + 
                            date.toLocaleTimeString([], {hour: 'numeric', minute: '2-digit', hour12: true});
-                case 'F': // Long date/time
+                case 'F':
                     return date.toLocaleDateString([], {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}) + ' ' +
                            date.toLocaleTimeString([], {hour: 'numeric', minute: '2-digit', hour12: true});
-                case 'R': // Relative time
+                case 'R':
                     const now = new Date();
                     const diffMs = date.getTime() - now.getTime();
                     const diffMins = Math.round(diffMs / (1000 * 60));
@@ -403,10 +634,16 @@
         }
         
         function copyToClipboard(text) {
-            // Remove HTML entities
             const cleanText = text.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
             navigator.clipboard.writeText(cleanText).then(function() {
-                // Visual feedback
+                // Show success message
+                const successMsg = document.getElementById('copySuccess');
+                successMsg.style.display = 'block';
+                setTimeout(() => {
+                    successMsg.style.display = 'none';
+                }, 2000);
+                
+                // Visual feedback on clicked element
                 const elem = event.target;
                 const originalBorder = elem.style.border;
                 elem.style.border = '2px solid #48bb78';
@@ -415,6 +652,10 @@
                 }, 500);
             });
         }
+        
+        // Update examples when date/time changes
+        document.getElementById('date').addEventListener('change', updateFormatExamples);
+        document.getElementById('time').addEventListener('change', updateFormatExamples);
     </script>
 </body>
 </html>
